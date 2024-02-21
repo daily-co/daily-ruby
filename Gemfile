@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in daily-ruby.gemspec
 gemspec
 
+gem 'faraday', '~> 2.9.0'
 gem 'rake', '~> 12.0'
 
 group :development do
