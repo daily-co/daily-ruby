@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby 3.0
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.0
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Run Rubocop
+        run: make lint
