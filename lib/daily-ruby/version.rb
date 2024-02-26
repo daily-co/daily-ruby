@@ -11,5 +11,5 @@ OpenAPI Generator version: 7.3.0
 =end
 
 module Daily
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
 end
