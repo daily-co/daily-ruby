@@ -3,7 +3,7 @@
 openapi-generator generate -g ruby -o . -i daily.yaml \
     --additional-properties=gemName=daily-ruby \
     --additional-properties=moduleName=Daily \
-    --additional-properties=gemVersion=0.0.1 \
+    --additional-properties=gemVersion=0.0.2 \
     --additional-properties=gemLicense=MIT \
     --additional-properties=gemAuthor=Daily \
     --additional-properties=gemAuthorEmail=help@daily.co \

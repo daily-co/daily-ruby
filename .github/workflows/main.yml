@@ -35,9 +35,3 @@ jobs:
 
       - name: Install the gem
         run: bundle exec rake install
-
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifacts
-          path: pkg/*.gem
