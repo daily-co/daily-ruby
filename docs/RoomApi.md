@@ -6,6 +6,7 @@ All URIs are relative to *https://api.daily.co/v1*
 | ------ | ------------ | ----------- |
 | [**create_room**](RoomApi.md#create_room) | **POST** /rooms | Create a new room |
 | [**delete_room**](RoomApi.md#delete_room) | **DELETE** /rooms/{name} | Delete room |
+| [**get_room**](RoomApi.md#get_room) | **GET** /rooms/{name} | Get room |
 | [**get_rooms**](RoomApi.md#get_rooms) | **GET** /rooms | Get a list rooms |
 
 
@@ -15,7 +16,7 @@ All URIs are relative to *https://api.daily.co/v1*
 
 Create a new room
 
-A POST request to /rooms creates a new room.
+Creates a new meeting room. The name of the room, privacy settings, and other properties can be specified in the request body. 
 
 ### Examples
 
@@ -138,6 +139,75 @@ end
 ### Return type
 
 [**RoomDeletedResponse**](RoomDeletedResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_room
+
+> <RoomResponse> get_room(name)
+
+Get room
+
+Get a Daily room.
+
+### Examples
+
+```ruby
+require 'time'
+require 'daily-ruby'
+# setup authorization
+Daily.configure do |config|
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Daily::RoomApi.new
+name = 'name_example' # String | The room name that needs to be fetched
+
+begin
+  # Get room
+  result = api_instance.get_room(name)
+  p result
+rescue Daily::ApiError => e
+  puts "Error when calling RoomApi->get_room: #{e}"
+end
+```
+
+#### Using the get_room_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RoomResponse>, Integer, Hash)> get_room_with_http_info(name)
+
+```ruby
+begin
+  # Get room
+  data, status_code, headers = api_instance.get_room_with_http_info(name)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RoomResponse>
+rescue Daily::ApiError => e
+  puts "Error when calling RoomApi->get_room_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** | The room name that needs to be fetched |  |
+
+### Return type
+
+[**RoomResponse**](RoomResponse.md)
 
 ### Authorization
 

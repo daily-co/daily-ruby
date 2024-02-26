@@ -9,11 +9,11 @@ All URIs are relative to *https://api.daily.co/v1*
 
 ## create_meeting_token
 
-> <CreateMeetingToken200Response> create_meeting_token(opts)
+> <MeetingTokenResponse> create_meeting_token(opts)
 
 Creates a meeting token
 
-A POST request to /meeting-tokens creates a new meeting token.
+A POST request to /meeting-tokens creates a new meeting token. This token can be used to authenticate a user for a specific meeting. 
 
 ### Examples
 
@@ -44,7 +44,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateMeetingToken200Response>, Integer, Hash)> create_meeting_token_with_http_info(opts)
+> <Array(<MeetingTokenResponse>, Integer, Hash)> create_meeting_token_with_http_info(opts)
 
 ```ruby
 begin
@@ -52,7 +52,7 @@ begin
   data, status_code, headers = api_instance.create_meeting_token_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CreateMeetingToken200Response>
+  p data # => <MeetingTokenResponse>
 rescue Daily::ApiError => e
   puts "Error when calling MeetingTokensApi->create_meeting_token_with_http_info: #{e}"
 end
@@ -66,7 +66,7 @@ end
 
 ### Return type
 
-[**CreateMeetingToken200Response**](CreateMeetingToken200Response.md)
+[**MeetingTokenResponse**](MeetingTokenResponse.md)
 
 ### Authorization
 

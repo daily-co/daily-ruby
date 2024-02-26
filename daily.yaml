@@ -4,7 +4,7 @@ servers:
 info:
   description: >-
     The official library for communicating with the Daily REST API.
-  version: 0.0.0
+  version: 0.0.2
   title: Daily
   license:
     name: Apache-2.0
@@ -18,11 +18,12 @@ paths:
       tags:
         - room
       summary: Create a new room
-      description: "A POST request to /rooms creates a new room."
+      description: >
+        Creates a new meeting room. The name of the room, privacy settings, and other properties can be specified in the request body.
       operationId: createRoom
       responses:
         "200":
-          description: successful operation
+          description: Room created successfully. The response includes the details of the created room.
           content:
             application/json:
               schema:
@@ -32,7 +33,7 @@ paths:
         "401":
           $ref: "#/components/responses/UnauthorizedError"
         "405":
-          description: Invalid input
+          description: Invalid input. This usually means that the request body is missing or malformed.
         "429":
           $ref: "#/components/responses/TooManyRequestsError"
       security:
@@ -86,6 +87,45 @@ paths:
       security:
         - bearerAuth: []
   "/rooms/{name}":
+    get:
+      tags:
+        - room
+      summary: Get room
+      description: Get a Daily room.
+      operationId: getRoom
+      parameters:
+        - name: name
+          in: path
+          description: The room name that needs to be fetched
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Room fetched successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomResponse"
+        "404":
+          description: Room not found
+          content:
+            application/json:
+              schema:
+                title: Room not found response
+                description: Room not found response
+                type: object
+                properties:
+                  error:
+                    type: string
+                  info:
+                    type: string
+        "429":
+          $ref: "#/components/responses/TooManyRequestsError"
+        "500":
+          $ref: "#/components/responses/ServerError"
+      security:
+        - bearerAuth: []
     delete:
       tags:
         - room
@@ -129,17 +169,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequestsError"
         "500":
-          description: Server error
-          content:
-            application/json:
-              schema:
-                title: Server error response
-                description: Server error response
-                type: object
-                properties:
-                  error:
-                    type: string
-
+          $ref: "#/components/responses/ServerError"
       security:
         - bearerAuth: []
   /meeting-tokens:
@@ -147,43 +177,30 @@ paths:
       tags:
         - meeting-tokens
       summary: Creates a meeting token
-      description: "A POST request to /meeting-tokens creates a new meeting token."
+      description: >
+        A POST request to /meeting-tokens creates a new meeting token. This token can be used to authenticate a user for a specific meeting.
       operationId: createMeetingToken
       responses:
         "200":
-          description: successful operation
+          description: Meeting token created successfully. The response includes the JWT token.
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  token:
-                    type: string
-                    format: jwt
+                $ref: "#/components/schemas/MeetingTokenResponse"
         "400":
           $ref: "#/components/responses/InvalidRequest"
         "401":
           $ref: "#/components/responses/UnauthorizedError"
         "405":
-          description: Invalid input
+          description: Invalid input. This usually means that the request body is missing or malformed.
         "429":
           $ref: "#/components/responses/TooManyRequestsError"
         "500":
-          description: Server error
-          content:
-            application/json:
-              schema:
-                title: Server error response
-                description: Server error response
-                type: object
-                properties:
-                  error:
-                    type: string
+          $ref: "#/components/responses/ServerError"
       security:
         - bearerAuth: []
       requestBody:
         $ref: "#/components/requestBodies/MeetingTokenRequest"
-
 externalDocs:
   description: Find out more about Daily
   url: "https://docs.daily.co/reference"
@@ -412,6 +429,15 @@ components:
                     - type: boolean
           required:
             - room_name
+    MeetingTokenResponse:
+      title: Meeting token response
+      description: Meeting token response
+      type: object
+      properties:
+        token:
+          type: string
+          format: jwt
+          description: The JWT token for the meeting.
 
   responses:
     UnauthorizedError:
@@ -420,3 +446,15 @@ components:
       description: Too many requests
     InvalidRequest:
       description: Invalid request
+    ServerError:
+      description: Server error.
+      content:
+        application/json:
+          schema:
+            title: Server error response
+            description: Details about the server error.
+            type: object
+            properties:
+              error:
+                type: string
+                description: A message describing the server error.
