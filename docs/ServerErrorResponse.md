@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **error** | **String** |  | [optional] |
+| **error** | **String** | A message describing the server error. | [optional] |
 
 ## Example
 

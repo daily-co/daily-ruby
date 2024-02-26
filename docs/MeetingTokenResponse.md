@@ -1,17 +1,17 @@
-# Daily::CreateMeetingToken200Response
+# Daily::MeetingTokenResponse
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **token** | **String** |  | [optional] |
+| **token** | **String** | The JWT token for the meeting. | [optional] |
 
 ## Example
 
 ```ruby
 require 'daily-ruby'
 
-instance = Daily::CreateMeetingToken200Response.new(
+instance = Daily::MeetingTokenResponse.new(
   token: null
 )
 ```
