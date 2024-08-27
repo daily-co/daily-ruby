@@ -20,6 +20,7 @@
 | **max_streaming_instances_per_room** | **Float** |  | [optional] |
 | **enable_daily_logger** | **Boolean** |  | [optional] |
 | **enable_prejoin_ui** | **Boolean** |  | [optional] |
+| **enable_live_captions_ui** | **Boolean** |  | [optional] |
 | **enable_network_ui** | **Boolean** |  | [optional] |
 | **disable_rate_limiting** | **Boolean** |  | [optional] |
 | **attach_callobject_to_window** | **Boolean** |  | [optional] |
@@ -46,6 +47,7 @@ instance = Daily::GetDomainConfig200ResponseConfig.new(
   max_streaming_instances_per_room: null,
   enable_daily_logger: null,
   enable_prejoin_ui: null,
+  enable_live_captions_ui: null,
   enable_network_ui: null,
   disable_rate_limiting: null,
   attach_callobject_to_window: null

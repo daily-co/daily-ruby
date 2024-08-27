@@ -11,7 +11,8 @@
 | **punctuate** | **Boolean** | See Deepgram&#39;s documentation for [&#x60;punctuate&#x60;](https://developers.deepgram.com/docs/punctuation) | [optional] |
 | **endpointing** | [**TranscriptionPropertiesEndpointing**](TranscriptionPropertiesEndpointing.md) |  | [optional] |
 | **redact** | [**TranscriptionPropertiesRedact**](TranscriptionPropertiesRedact.md) |  | [optional] |
-| **extra** | **Object** | Specify any Deepgram parameters. See Deepgram&#39;s documentation for [available streaming options](https://developers.deepgram.com/docs/features-overview). | [optional] |
+| **extra** | **Object** | Specify any Deepgram parameters. See Deepgram&#39;s documentation for [available streaming options](https://developers.deepgram.com/docs/features-overview) | [optional] |
+| **include_raw_response** | **Boolean** | Whether Deepgram&#39;s raw response should be included in all transcription messages | [optional] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = Daily::TranscriptionProperties.new(
   punctuate: null,
   endpointing: null,
   redact: null,
-  extra: null
+  extra: null,
+  include_raw_response: null
 )
 ```
 

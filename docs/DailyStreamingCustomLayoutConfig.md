@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **preset** | **String** |  |  |
 | **composition_id** | **String** |  |  |
-| **composition_params** | [**Hash&lt;String, DailyStreamingCustomLayoutConfigCompositionParams&gt;**](DailyStreamingCustomLayoutConfigCompositionParams.md) |  | [optional] |
+| **composition_params** | [**Hash&lt;String, DailyStreamingCustomLayoutConfigCompositionParamsValue&gt;**](DailyStreamingCustomLayoutConfigCompositionParamsValue.md) |  | [optional] |
 | **session_assets** | **Hash&lt;String, String&gt;** |  | [optional] |
 
 ## Example

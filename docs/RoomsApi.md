@@ -11,12 +11,17 @@ All URIs are relative to *https://api.daily.co/v1*
 | [**get_room_presence**](RoomsApi.md#get_room_presence) | **GET** /rooms/{room_name}/presence | rooms/:name/presence |
 | [**get_session_data**](RoomsApi.md#get_session_data) | **GET** /rooms/{room_name}/get-session-data | rooms/:name/get-session-data |
 | [**list_rooms**](RoomsApi.md#list_rooms) | **GET** /rooms | /rooms |
+| [**room_dial_out_send_dtmf**](RoomsApi.md#room_dial_out_send_dtmf) | **POST** /rooms/{room_name}/dialOut/sendDTMF | rooms/:name/dialOut/sendDTMF |
+| [**room_dial_out_start**](RoomsApi.md#room_dial_out_start) | **POST** /rooms/{room_name}/dialOut/start | rooms/:name/dialOut/start |
+| [**room_dial_out_stop**](RoomsApi.md#room_dial_out_stop) | **POST** /rooms/{room_name}/dialOut/stop | rooms/:name/dialOut/stop |
 | [**room_livestreaming_start**](RoomsApi.md#room_livestreaming_start) | **POST** /rooms/{room_name}/live-streaming/start | rooms/:name/live-streaming/start |
 | [**room_livestreaming_stop**](RoomsApi.md#room_livestreaming_stop) | **POST** /rooms/{room_name}/live-streaming/stop | rooms/:name/live-streaming/stop |
 | [**room_livestreaming_update**](RoomsApi.md#room_livestreaming_update) | **POST** /rooms/{room_name}/live-streaming/update | rooms/:name/live-streaming/update |
 | [**room_recordings_start**](RoomsApi.md#room_recordings_start) | **POST** /rooms/{room_name}/recordings/start | rooms/:name/recordings/start |
 | [**room_recordings_stop**](RoomsApi.md#room_recordings_stop) | **POST** /rooms/{room_name}/recordings/stop | rooms/:name/recordings/stop |
 | [**room_recordings_update**](RoomsApi.md#room_recordings_update) | **POST** /rooms/{room_name}/recordings/update | rooms/:name/recordings/update |
+| [**room_sip_call_transfer**](RoomsApi.md#room_sip_call_transfer) | **POST** /rooms/{room_name}/sipCallTransfer | rooms/:name/sipCallTransfer |
+| [**room_sip_refer**](RoomsApi.md#room_sip_refer) | **POST** /rooms/{room_name}/sipRefer | rooms/:name/sipRefer |
 | [**room_transcription_start**](RoomsApi.md#room_transcription_start) | **POST** /rooms/{room_name}/transcription/start | rooms/:name/transcription/start |
 | [**room_transcription_stop**](RoomsApi.md#room_transcription_stop) | **POST** /rooms/{room_name}/transcription/stop | rooms/:name/transcription/stop |
 | [**send_app_message**](RoomsApi.md#send_app_message) | **POST** /rooms/{room_name}/send-app-message | rooms/:name/send-app-message |
@@ -541,6 +546,228 @@ end
 - **Accept**: application/json
 
 
+## room_dial_out_send_dtmf
+
+> room_dial_out_send_dtmf(room_name, opts)
+
+rooms/:name/dialOut/sendDTMF
+
+send DTMF digits on the dialout
+
+### Examples
+
+```ruby
+require 'time'
+require 'daily-ruby'
+# setup authorization
+Daily.configure do |config|
+  # Configure API key authorization: sec0
+  config.api_key['sec0'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['sec0'] = 'Bearer'
+end
+
+api_instance = Daily::RoomsApi.new
+room_name = 'room_name_example' # String | 
+opts = {
+  room_dial_out_send_dtmf_request: Daily::RoomDialOutSendDTMFRequest.new # RoomDialOutSendDTMFRequest | 
+}
+
+begin
+  # rooms/:name/dialOut/sendDTMF
+  api_instance.room_dial_out_send_dtmf(room_name, opts)
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_dial_out_send_dtmf: #{e}"
+end
+```
+
+#### Using the room_dial_out_send_dtmf_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> room_dial_out_send_dtmf_with_http_info(room_name, opts)
+
+```ruby
+begin
+  # rooms/:name/dialOut/sendDTMF
+  data, status_code, headers = api_instance.room_dial_out_send_dtmf_with_http_info(room_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_dial_out_send_dtmf_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **room_name** | **String** |  |  |
+| **room_dial_out_send_dtmf_request** | [**RoomDialOutSendDTMFRequest**](RoomDialOutSendDTMFRequest.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[sec0](../README.md#sec0)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## room_dial_out_start
+
+> room_dial_out_start(room_name, opts)
+
+rooms/:name/dialOut/start
+
+Start a dial-out in a room
+
+### Examples
+
+```ruby
+require 'time'
+require 'daily-ruby'
+# setup authorization
+Daily.configure do |config|
+  # Configure API key authorization: sec0
+  config.api_key['sec0'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['sec0'] = 'Bearer'
+end
+
+api_instance = Daily::RoomsApi.new
+room_name = 'room_name_example' # String | 
+opts = {
+  dialout_properties: Daily::DialoutProperties.new # DialoutProperties | 
+}
+
+begin
+  # rooms/:name/dialOut/start
+  api_instance.room_dial_out_start(room_name, opts)
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_dial_out_start: #{e}"
+end
+```
+
+#### Using the room_dial_out_start_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> room_dial_out_start_with_http_info(room_name, opts)
+
+```ruby
+begin
+  # rooms/:name/dialOut/start
+  data, status_code, headers = api_instance.room_dial_out_start_with_http_info(room_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_dial_out_start_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **room_name** | **String** |  |  |
+| **dialout_properties** | [**DialoutProperties**](DialoutProperties.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[sec0](../README.md#sec0)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## room_dial_out_stop
+
+> room_dial_out_stop(room_name, opts)
+
+rooms/:name/dialOut/stop
+
+Stop a dial out in a room
+
+### Examples
+
+```ruby
+require 'time'
+require 'daily-ruby'
+# setup authorization
+Daily.configure do |config|
+  # Configure API key authorization: sec0
+  config.api_key['sec0'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['sec0'] = 'Bearer'
+end
+
+api_instance = Daily::RoomsApi.new
+room_name = 'room_name_example' # String | 
+opts = {
+  room_dial_out_stop_request: Daily::RoomDialOutStopRequest.new # RoomDialOutStopRequest | 
+}
+
+begin
+  # rooms/:name/dialOut/stop
+  api_instance.room_dial_out_stop(room_name, opts)
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_dial_out_stop: #{e}"
+end
+```
+
+#### Using the room_dial_out_stop_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> room_dial_out_stop_with_http_info(room_name, opts)
+
+```ruby
+begin
+  # rooms/:name/dialOut/stop
+  data, status_code, headers = api_instance.room_dial_out_stop_with_http_info(room_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_dial_out_stop_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **room_name** | **String** |  |  |
+| **room_dial_out_stop_request** | [**RoomDialOutStopRequest**](RoomDialOutStopRequest.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[sec0](../README.md#sec0)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## room_livestreaming_start
 
 > room_livestreaming_start(room_name, opts)
@@ -966,6 +1193,155 @@ end
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[sec0](../README.md#sec0)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## room_sip_call_transfer
+
+> room_sip_call_transfer(room_name, opts)
+
+rooms/:name/sipCallTransfer
+
+transfer sip/pstn call
+
+### Examples
+
+```ruby
+require 'time'
+require 'daily-ruby'
+# setup authorization
+Daily.configure do |config|
+  # Configure API key authorization: sec0
+  config.api_key['sec0'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['sec0'] = 'Bearer'
+end
+
+api_instance = Daily::RoomsApi.new
+room_name = 'room_name_example' # String | 
+opts = {
+  room_sip_call_transfer_request: Daily::RoomSipCallTransferRequest.new # RoomSipCallTransferRequest | 
+}
+
+begin
+  # rooms/:name/sipCallTransfer
+  api_instance.room_sip_call_transfer(room_name, opts)
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_sip_call_transfer: #{e}"
+end
+```
+
+#### Using the room_sip_call_transfer_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> room_sip_call_transfer_with_http_info(room_name, opts)
+
+```ruby
+begin
+  # rooms/:name/sipCallTransfer
+  data, status_code, headers = api_instance.room_sip_call_transfer_with_http_info(room_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_sip_call_transfer_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **room_name** | **String** |  |  |
+| **room_sip_call_transfer_request** | [**RoomSipCallTransferRequest**](RoomSipCallTransferRequest.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[sec0](../README.md#sec0)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## room_sip_refer
+
+> Object room_sip_refer(room_name, opts)
+
+rooms/:name/sipRefer
+
+refer a sip call to other sip endpoint
+
+### Examples
+
+```ruby
+require 'time'
+require 'daily-ruby'
+# setup authorization
+Daily.configure do |config|
+  # Configure API key authorization: sec0
+  config.api_key['sec0'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['sec0'] = 'Bearer'
+end
+
+api_instance = Daily::RoomsApi.new
+room_name = 'room_name_example' # String | 
+opts = {
+  room_sip_call_transfer_request: Daily::RoomSipCallTransferRequest.new # RoomSipCallTransferRequest | 
+}
+
+begin
+  # rooms/:name/sipRefer
+  result = api_instance.room_sip_refer(room_name, opts)
+  p result
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_sip_refer: #{e}"
+end
+```
+
+#### Using the room_sip_refer_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> room_sip_refer_with_http_info(room_name, opts)
+
+```ruby
+begin
+  # rooms/:name/sipRefer
+  data, status_code, headers = api_instance.room_sip_refer_with_http_info(room_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_sip_refer_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **room_name** | **String** |  |  |
+| **room_sip_call_transfer_request** | [**RoomSipCallTransferRequest**](RoomSipCallTransferRequest.md) |  | [optional] |
+
+### Return type
+
+**Object**
 
 ### Authorization
 
