@@ -11,7 +11,7 @@
 | **status** | **String** |  | [optional] |
 | **duration** | **Integer** | How many seconds long the transcription is, approximately. | [optional] |
 | **out_params** | [**GetTranscriptInfo200ResponseOutParams**](GetTranscriptInfo200ResponseOutParams.md) |  | [optional] |
-| **error** | **String** | if &#x60;status&#x60; is &#x60;t_error&#x60;, this provide the description of the error. | [optional] |
+| **error** | **String** | If &#x60;status&#x60; is &#x60;t_error&#x60;, this provide the description of the error, otherwise &#x60;null&#x60;. | [optional] |
 
 ## Example
 

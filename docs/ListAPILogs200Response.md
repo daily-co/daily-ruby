@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** | An ID identifying the log that was generated. | [optional] |
-| **user_id** | **String** | The user ID associated with the owner of the account.  | [optional] |
+| **user_id** | **String** | The user ID associated with the owner of the account. | [optional] |
 | **domain_id** | **String** | The domain ID associated with this log statement. | [optional] |
 | **source** | **String** | The source of this log statement. This will be &#x60;\&quot;api\&quot;&#x60; or &#x60;\&quot;webhook\&quot;&#x60;. | [optional] |
 | **ip** | **String** | The originating IP address of this request. | [optional] |

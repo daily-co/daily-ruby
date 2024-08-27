@@ -10,15 +10,20 @@ Daily.configure do |config|
   # config.configure_faraday_connection { |connection| 'YOUR CONNECTION CONFIG PROC' }
 end
 
+
 room_api_instance = Daily::RoomsApi.new
 opts = {
   room_request: Daily::CreateRoomRequest.new(
     privacy: 'private',
-    properties: Daily::RoomProperties.new({
+    properties: {
       exp: (Time.now + (3600 * 2)).to_i, # Delete the room after two hours
       enable_mesh_sfu: true,
-      sfu_switchover: 0.5
-    })
+      sfu_switchover: 0.5,
+      dialin: {
+        display_name: 'Phone Caller', 
+        wait_for_meeting_start: true
+      }
+    }
   )
 }
 
@@ -59,3 +64,4 @@ end
 
 p "Room url: " + room.url
 p "Meeting token: " + meeting_token.token
+
