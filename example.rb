@@ -13,7 +13,7 @@ end
 
 room_api_instance = Daily::RoomsApi.new
 opts = {
-  room_request: Daily::CreateRoomRequest.new(
+  create_room_request: Daily::CreateRoomRequest.new(
     privacy: 'private',
     properties: {
       exp: (Time.now + (3600 * 2)).to_i, # Delete the room after two hours
