@@ -13,7 +13,7 @@ Generator version: 7.8.0
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "daily-ruby/version"
+require_relative 'lib/daily-ruby/version'
 
 Gem::Specification.new do |s|
   s.name        = "daily-ruby"
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.email       = ["help@daily.co"]
   s.homepage    = "https://www.github.com/daily-co/daily-ruby"
   s.summary     = "The official Daily API Ruby client"
-  s.description = "The official Daily API Ruby client"
+  s.description = "The official Daily API Ruby client for Daily's REST API"
   s.license     = "MIT"
   s.required_ruby_version = ">= 2.7"
   s.metadata    = {}

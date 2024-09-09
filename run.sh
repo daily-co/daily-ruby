@@ -4,7 +4,7 @@ openapi-generator generate -g ruby -o . \
     -i ~/git/pluot-core/north-star/packages/docs-site/lib/oas/index.yaml \
     --additional-properties=gemName=daily-ruby \
     --additional-properties=moduleName=Daily \
-    --additional-properties=gemVersion=1.0.1 \
+    --additional-properties=gemVersion=1.0.2 \
     --additional-properties=gemLicense=MIT \
     --additional-properties=gemAuthor=Daily \
     --additional-properties=gemAuthorEmail=help@daily.co \
