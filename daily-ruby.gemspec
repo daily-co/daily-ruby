@@ -13,7 +13,7 @@ Generator version: 7.8.0
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "daily-ruby/version"
+require_relative 'lib/daily-ruby/version'
 
 Gem::Specification.new do |s|
   s.name        = "daily-ruby"
