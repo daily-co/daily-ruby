@@ -1,6 +1,8 @@
 # Load the gem
 require 'daily-ruby'
 
+p 'Version: ' + Daily::VERSION
+
 # Setup authorization
 Daily.configure do |config|
   # Configure Bearer authorization: bearerAuth
