@@ -45,7 +45,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.0)
-    uri (0.13.1)
+    uri (0.13.2)
 
 PLATFORMS
   arm64-darwin-23
