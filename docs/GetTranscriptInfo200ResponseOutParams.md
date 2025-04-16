@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **s3key** | **String** |  | [optional] |
+| **s3Key** | **String** |  | [optional] |
 | **bucket** | **String** |  | [optional] |
 | **region** | **String** |  | [optional] |
 
@@ -14,7 +14,7 @@
 require 'daily-ruby'
 
 instance = Daily::GetTranscriptInfo200ResponseOutParams.new(
-  s3key: mydomain/test-recording-room/11245260397,
+  s3Key: mydomain/test-recording-room/11245260397,
   bucket: my-transcript-bucket,
   region: us-west-2
 )

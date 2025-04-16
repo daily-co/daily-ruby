@@ -9,7 +9,7 @@
 | **status** | **String** |  | [optional] |
 | **max_participants** | **Integer** |  | [optional][default to 0] |
 | **share_token** | **String** |  | [optional] |
-| **s3key** | **String** |  | [optional] |
+| **s3Key** | **String** |  | [optional] |
 | **mtg_session_id** | **String** |  | [optional] |
 
 ## Example
@@ -23,7 +23,7 @@ instance = Daily::ListRecordings200ResponseDataInner.new(
   status: in-progress,
   max_participants: 2,
   share_token: NcWgEiJuqD8v,
-  s3key: mydomain/test-recording-room/11245260397,
+  s3Key: mydomain/test-recording-room/11245260397,
   mtg_session_id: 257764e6-c74e-4c30-944a-a887a03173a3
 )
 ```

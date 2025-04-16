@@ -73,7 +73,7 @@ describe Daily::GetRecordingInfo200Response do
     end
   end
 
-  describe 'test attribute "s3key"' do
+  describe 'test attribute "s3Key"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

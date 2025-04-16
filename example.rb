@@ -21,6 +21,7 @@ opts = {
       exp: (Time.now + (3600 * 2)).to_i, # Delete the room after two hours
       enable_mesh_sfu: true,
       sfu_switchover: 0.5,
+      enable_recording: "cloud",
       dialin: {
         display_name: 'Phone Caller', 
         wait_for_meeting_start: true
@@ -47,6 +48,7 @@ opts = {
     properties: {
       is_owner: true,
       room_name: room.name,
+      start_cloud_recording: true,
       exp: (Time.now + (3600 * 2)).to_i # Expire the token after two hours
     }
   })
@@ -66,4 +68,25 @@ end
 
 p "Room url: " + room.url
 p "Meeting token: " + meeting_token.token
+
+recordings_api_instance = Daily::RecordingsApi.new
+recordings_opts = {
+  limit: 5 # Fetch the 5 most recent recordings
+}
+
+begin
+  # List the most recent recordings
+  recordings = recordings_api_instance.list_recordings(recordings_opts)
+  puts "Recent Recordings:"
+  recordings.data.each do |recording|
+    puts "ID: #{recording.id}, Status: #{recording.status}"
+    
+    # Generate an access link for the recording
+    access_link = recordings_api_instance.get_recording_link(recording.id)
+    puts "Access Link: #{access_link.download_link}"
+  end
+rescue Daily::ApiError => e
+  puts "Error when calling RecordingsApi->list_recordings or get_recording_link: #{e}"
+end
+
 
