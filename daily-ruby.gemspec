@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.summary     = "The official Daily API Ruby client"
   s.description = "The official Daily API Ruby client for Daily's REST API"
   s.license     = "MIT"
-  s.required_ruby_version = ">= 2.7"
+  s.required_ruby_version = ">= 3.0"
   s.metadata    = {}
 
   s.add_runtime_dependency 'faraday', '>= 1.0.1', '< 3.0'
