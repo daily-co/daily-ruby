@@ -11,5 +11,5 @@ Generator version: 7.8.0
 =end
 
 module Daily
-  VERSION = '1.0.3'
+  VERSION = '1.0.4'
 end
