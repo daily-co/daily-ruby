@@ -20,7 +20,7 @@ GEM
       multipart-post (~> 2.0)
     faraday-net_http (3.4.2)
       net-http (~> 0.5)
-    json (2.19.1)
+    json (2.19.2)
     logger (1.7.0)
     marcel (1.0.4)
     method_source (1.0.0)
