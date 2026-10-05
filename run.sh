@@ -6,6 +6,13 @@ set -euo pipefail
 # to generate from something else.
 SPEC_SRC="${SPEC_SRC:-https://docs.daily.co/openapi.json}"
 
+# Make a relative SPEC_SRC file path absolute, then work from the repo root:
+# the generator writes to "." and the jq filter lives in scripts/.
+if [[ ! "$SPEC_SRC" =~ ^https?:// ]]; then
+    SPEC_SRC="$(cd "$(dirname "$SPEC_SRC")" && pwd)/$(basename "$SPEC_SRC")"
+fi
+cd "$(dirname "$0")"
+
 RAW="$(mktemp "${TMPDIR:-/tmp}/daily-oas-raw.XXXXXX")"
 SPEC="$(mktemp "${TMPDIR:-/tmp}/daily-oas.XXXXXX")"
 trap 'rm -f "$RAW" "$SPEC"' EXIT
@@ -17,7 +24,7 @@ fi
 
 # Remove doc-only "default" values before generating. See
 # scripts/strip-placeholder-defaults.jq for why.
-jq -f "$(dirname "$0")/scripts/strip-placeholder-defaults.jq" "$RAW" > "$SPEC"
+jq -f scripts/strip-placeholder-defaults.jq "$RAW" > "$SPEC"
 
 openapi-generator generate -g ruby -o . \
     -i "$SPEC" \
