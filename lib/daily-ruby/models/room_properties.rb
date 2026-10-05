@@ -390,8 +390,6 @@ module Daily
 
       if attributes.key?(:'enable_recording')
         self.enable_recording = attributes[:'enable_recording']
-      else
-        self.enable_recording = '<not set>'
       end
 
       if attributes.key?(:'eject_at_room_exp')
@@ -460,14 +458,10 @@ module Daily
 
       if attributes.key?(:'geo')
         self.geo = attributes[:'geo']
-      else
-        self.geo = 'NULL'
       end
 
       if attributes.key?(:'rtmp_geo')
         self.rtmp_geo = attributes[:'rtmp_geo']
-      else
-        self.rtmp_geo = 'The closest available region to the SFU region used by the meeting.'
       end
 
       if attributes.key?(:'disable_rtmp_geo_fallback')

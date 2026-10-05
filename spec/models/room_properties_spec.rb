@@ -204,8 +204,19 @@ describe Daily::RoomProperties do
   end
 
   describe 'test attribute "geo"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    it 'is not sent when unset' do
+      hash = Daily::RoomProperties.new(exp: 1).to_hash
+      expect(hash).not_to have_key(:geo)
+      expect(hash).not_to have_key(:rtmp_geo)
+      expect(hash).not_to have_key(:enable_recording)
+    end
+
+    it 'is not sent when nil' do
+      expect(Daily::RoomProperties.new(geo: nil).to_hash).not_to have_key(:geo)
+    end
+
+    it 'is sent when set' do
+      expect(Daily::RoomProperties.new(geo: 'eu-central-1').to_hash[:geo]).to eq('eu-central-1')
     end
   end
 

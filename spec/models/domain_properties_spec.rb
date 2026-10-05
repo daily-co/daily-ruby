@@ -128,8 +128,11 @@ describe Daily::DomainProperties do
   end
 
   describe 'test attribute "geo"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    it 'is not sent when unset' do
+      hash = Daily::DomainProperties.new(lang: 'en').to_hash
+      expect(hash).not_to have_key(:geo)
+      expect(hash).not_to have_key(:rtmp_geo)
+      expect(hash).not_to have_key(:meeting_join_hook)
     end
   end
 
