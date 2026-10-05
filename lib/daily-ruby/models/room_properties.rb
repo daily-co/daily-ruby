@@ -496,8 +496,6 @@ module Daily
 
       if attributes.key?(:'recordings_template')
         self.recordings_template = attributes[:'recordings_template']
-      else
-        self.recordings_template = '{domain_name}/{room_name}/{epoch_time}.'
       end
 
       if attributes.key?(:'streaming_endpoints')

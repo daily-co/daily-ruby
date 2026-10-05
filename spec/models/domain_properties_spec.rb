@@ -167,8 +167,13 @@ describe Daily::DomainProperties do
   end
 
   describe 'test attribute "recordings_template"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    it 'is not sent when unset' do
+      expect(Daily::DomainProperties.new.to_hash).not_to have_key(:recordings_template)
+    end
+
+    it 'is sent when set' do
+      template = '{room_name}/{epoch_time}.mp4'
+      expect(Daily::DomainProperties.new(recordings_template: template).to_hash[:recordings_template]).to eq(template)
     end
   end
 
