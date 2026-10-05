@@ -224,6 +224,10 @@ module Daily
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'meeting_join_hook',
+        :'geo',
+        :'rtmp_geo',
+        :'recordings_template',
       ])
     end
 
