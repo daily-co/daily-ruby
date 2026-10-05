@@ -1,14 +1,23 @@
 #!/bin/bash
 set -euo pipefail
 
-# Source spec for the Daily REST API (lives in the pluot-core repo).
-SPEC_SRC="${SPEC_SRC:-$HOME/git/pluot-core/docs/openapi.json}"
+# Source spec for the Daily REST API: the published docs copy by default.
+# Set SPEC_SRC to a URL or a local file (e.g. pluot-core/docs/openapi.json)
+# to generate from something else.
+SPEC_SRC="${SPEC_SRC:-https://docs.daily.co/openapi.json}"
+
+RAW="$(mktemp "${TMPDIR:-/tmp}/daily-oas-raw.XXXXXX")"
+SPEC="$(mktemp "${TMPDIR:-/tmp}/daily-oas.XXXXXX")"
+trap 'rm -f "$RAW" "$SPEC"' EXIT
+if [[ "$SPEC_SRC" =~ ^https?:// ]]; then
+    curl -fsSL "$SPEC_SRC" -o "$RAW"
+else
+    cp "$SPEC_SRC" "$RAW"
+fi
 
 # Remove doc-only "default" values before generating. See
 # scripts/strip-placeholder-defaults.jq for why.
-SPEC="$(mktemp "${TMPDIR:-/tmp}/daily-oas.XXXXXX")"
-trap 'rm -f "$SPEC"' EXIT
-jq -f "$(dirname "$0")/scripts/strip-placeholder-defaults.jq" "$SPEC_SRC" > "$SPEC"
+jq -f "$(dirname "$0")/scripts/strip-placeholder-defaults.jq" "$RAW" > "$SPEC"
 
 openapi-generator generate -g ruby -o . \
     -i "$SPEC" \
