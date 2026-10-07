@@ -144,8 +144,12 @@ describe Daily::RoomProperties do
       expect(Daily::RoomProperties.new(enable_recording: 'cloud').to_hash[:enable_recording]).to eq('cloud')
     end
 
-    it 'is not sent when set to nil' do
-      expect(Daily::RoomProperties.new(enable_recording: nil).to_hash).not_to have_key(:enable_recording)
+    # Since 1.1.0 the spec marks enable_recording as nullable, so an explicit
+    # nil is sent as JSON null (same as geo). Leaving it unset sends nothing.
+    it 'is sent as null when set to nil on purpose' do
+      hash = Daily::RoomProperties.new(enable_recording: nil).to_hash
+      expect(hash).to have_key(:enable_recording)
+      expect(hash[:enable_recording]).to be_nil
     end
   end
 

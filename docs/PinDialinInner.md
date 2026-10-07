@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **phone_number** | **String** | Associate a purchased phone number to the dialin with PIN workflow.   | [optional] |
+| **phone_number** | **String** | Associate a purchased phone number to the dial-in with PIN workflow. Must be in E.164 format (e.g. \&quot;+18058700061\&quot;). | [optional] |
 | **name_prefix** | **String** | An identifier or name to associate to the workflow. | [optional] |
 | **ivr_greeting** | [**PinDialinInnerIvrGreeting**](PinDialinInnerIvrGreeting.md) |  | [optional] |
 

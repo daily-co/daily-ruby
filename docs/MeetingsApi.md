@@ -24,10 +24,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::MeetingsApi.new
@@ -72,7 +70,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -95,15 +93,13 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::MeetingsApi.new
 opts = {
-  room: 'room_example', # String | 
+  room: ['inner_example'], # Array<String> | A room name to filter meetings by. May be repeated (e.g. ?room=a&room=b) to filter by multiple rooms, up to a maximum of 100.
   timeframe_start: 56, # Integer | 
   timeframe_end: 56, # Integer | 
   limit: 56, # Integer | 
@@ -144,7 +140,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **room** | **String** |  | [optional] |
+| **room** | [**Array&lt;String&gt;**](String.md) | A room name to filter meetings by. May be repeated (e.g. ?room&#x3D;a&amp;room&#x3D;b) to filter by multiple rooms, up to a maximum of 100. | [optional] |
 | **timeframe_start** | **Integer** |  | [optional] |
 | **timeframe_end** | **Integer** |  | [optional] |
 | **limit** | **Integer** |  | [optional] |
@@ -159,7 +155,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -182,10 +178,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::MeetingsApi.new
@@ -238,7 +232,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

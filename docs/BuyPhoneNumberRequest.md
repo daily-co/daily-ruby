@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **number** | **String** | The phone number to purchase | [optional] |
+| **number** | **String** | The phone number to purchase, in E.164 format (e.g. \&quot;+18058700061\&quot;). If not provided, a random US number will be purchased. | [optional] |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'daily-ruby'
 
 instance = Daily::BuyPhoneNumberRequest.new(
-  number: null
+  number: +18058700061
 )
 ```
 

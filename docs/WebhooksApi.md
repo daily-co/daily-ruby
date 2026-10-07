@@ -26,10 +26,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::WebhooksApi.new
@@ -76,7 +74,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -86,7 +84,7 @@ end
 
 ## delete_webhook
 
-> Object delete_webhook(id)
+> delete_webhook(id)
 
 webhooks/:id
 
@@ -99,10 +97,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::WebhooksApi.new
@@ -110,8 +106,7 @@ id = 'id_example' # String |
 
 begin
   # webhooks/:id
-  result = api_instance.delete_webhook(id)
-  p result
+  api_instance.delete_webhook(id)
 rescue Daily::ApiError => e
   puts "Error when calling WebhooksApi->delete_webhook: #{e}"
 end
@@ -119,9 +114,9 @@ end
 
 #### Using the delete_webhook_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> delete_webhook_with_http_info(id)
+> <Array(nil, Integer, Hash)> delete_webhook_with_http_info(id)
 
 ```ruby
 begin
@@ -129,7 +124,7 @@ begin
   data, status_code, headers = api_instance.delete_webhook_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Daily::ApiError => e
   puts "Error when calling WebhooksApi->delete_webhook_with_http_info: #{e}"
 end
@@ -143,11 +138,11 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -170,10 +165,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::WebhooksApi.new
@@ -218,7 +211,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -241,10 +234,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::WebhooksApi.new
@@ -286,7 +277,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -309,10 +300,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::WebhooksApi.new
@@ -361,7 +350,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

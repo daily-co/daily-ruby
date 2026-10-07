@@ -10,7 +10,7 @@ All URIs are relative to *https://api.daily.co/v1*
 
 ## list_api_logs
 
-> <ListAPILogs200Response> list_api_logs(opts)
+> <Array<ListAPILogs200ResponseInner>> list_api_logs(opts)
 
 /logs/api
 
@@ -21,16 +21,14 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::LogsApi.new
 opts = {
-  starting_after: 'starting_after_example', # String | Given the log ID, will return all records after that ID. See [pagination docs](../../rest-api#pagination)
-  ending_before: 'ending_before_example', # String | Given the log ID, will return all records before that ID. See [pagination docs](../../rest-api#pagination)
+  starting_after: 'starting_after_example', # String | Given the log ID, will return all records after that ID. See [pagination docs](/docs/rest-api#pagination)
+  ending_before: 'ending_before_example', # String | Given the log ID, will return all records before that ID. See [pagination docs](/docs/rest-api#pagination)
   limit: 56, # Integer | Limit the number of logs and/or metrics returned
   source: 'source_example', # String | The source of the given logs, either `\"api\"` or `\"webhook\"`
   url: 'url_example' # String | Either the webhook server URL, or the API endpoint that was logged
@@ -49,7 +47,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ListAPILogs200Response>, Integer, Hash)> list_api_logs_with_http_info(opts)
+> <Array(<Array<ListAPILogs200ResponseInner>>, Integer, Hash)> list_api_logs_with_http_info(opts)
 
 ```ruby
 begin
@@ -57,7 +55,7 @@ begin
   data, status_code, headers = api_instance.list_api_logs_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ListAPILogs200Response>
+  p data # => <Array<ListAPILogs200ResponseInner>>
 rescue Daily::ApiError => e
   puts "Error when calling LogsApi->list_api_logs_with_http_info: #{e}"
 end
@@ -67,19 +65,19 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **starting_after** | **String** | Given the log ID, will return all records after that ID. See [pagination docs](../../rest-api#pagination) | [optional] |
-| **ending_before** | **String** | Given the log ID, will return all records before that ID. See [pagination docs](../../rest-api#pagination) | [optional] |
+| **starting_after** | **String** | Given the log ID, will return all records after that ID. See [pagination docs](/docs/rest-api#pagination) | [optional] |
+| **ending_before** | **String** | Given the log ID, will return all records before that ID. See [pagination docs](/docs/rest-api#pagination) | [optional] |
 | **limit** | **Integer** | Limit the number of logs and/or metrics returned | [optional][default to 20] |
-| **source** | **String** | The source of the given logs, either &#x60;\&quot;api\&quot;&#x60; or &#x60;\&quot;webhook\&quot;&#x60; | [optional][default to &#39;\&quot;api\&quot;&#39;] |
+| **source** | **String** | The source of the given logs, either &#x60;\&quot;api\&quot;&#x60; or &#x60;\&quot;webhook\&quot;&#x60; | [optional][default to &#39;api&#39;] |
 | **url** | **String** | Either the webhook server URL, or the API endpoint that was logged | [optional] |
 
 ### Return type
 
-[**ListAPILogs200Response**](ListAPILogs200Response.md)
+[**Array&lt;ListAPILogs200ResponseInner&gt;**](ListAPILogs200ResponseInner.md)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -89,7 +87,7 @@ end
 
 ## list_logs
 
-> Object list_logs(opts)
+> <ListLogs200Response> list_logs(opts)
 
 /logs
 
@@ -100,10 +98,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::LogsApi.new
@@ -133,7 +129,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> list_logs_with_http_info(opts)
+> <Array(<ListLogs200Response>, Integer, Hash)> list_logs_with_http_info(opts)
 
 ```ruby
 begin
@@ -141,7 +137,7 @@ begin
   data, status_code, headers = api_instance.list_logs_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <ListLogs200Response>
 rescue Daily::ApiError => e
   puts "Error when calling LogsApi->list_logs_with_http_info: #{e}"
 end
@@ -164,11 +160,11 @@ end
 
 ### Return type
 
-**Object**
+[**ListLogs200Response**](ListLogs200Response.md)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

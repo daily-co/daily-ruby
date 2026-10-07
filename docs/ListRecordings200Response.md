@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **total_count** | **Integer** |  | [optional][default to 0] |
+| **total_count** | **Integer** |  | [optional] |
 | **data** | [**Array&lt;ListRecordings200ResponseDataInner&gt;**](ListRecordings200ResponseDataInner.md) |  | [optional] |
 
 ## Example
