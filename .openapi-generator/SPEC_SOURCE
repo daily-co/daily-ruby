@@ -1,0 +1,8 @@
+generator: openapi-generator-cli 7.26.0
+spec_src: git:~/git/pluot-core@c479bb0d59:docs/openapi.json
+git_repo: ~/git/pluot-core
+git_ref: c479bb0d59
+git_commit: c479bb0d599bb68fd51e852475ad5b39a66a3088
+git_branches_containing_commit: jamsea/openapi-hls-config-nested
+git_path: docs/openapi.json
+spec_sha256: 42519472d4f3cb7f6adeb0ed822014a4ba25a6b064f7f009a4a2f3057bcbcd5d

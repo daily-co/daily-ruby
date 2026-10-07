@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **total_count** | **Float** |  |  |
-| **data** | [**Array&lt;GetMeetingInfo200ResponseDataInner&gt;**](GetMeetingInfo200ResponseDataInner.md) |  |  |
+| **total_count** | **Integer** | Total number of meetings matching the query. | [optional] |
+| **data** | [**Array&lt;GetMeetingInfo200ResponseDataInner&gt;**](GetMeetingInfo200ResponseDataInner.md) |  | [optional] |
 
 ## Example
 

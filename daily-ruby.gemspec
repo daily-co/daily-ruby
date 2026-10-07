@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.summary     = "The official Daily API Ruby client"
   s.description = "The official Daily API Ruby client for Daily's REST API"
   s.license     = "MIT"
-  s.required_ruby_version = ">= 3.0"
+  s.required_ruby_version = ">= 3.1"
   s.metadata    = {}
 
   s.add_runtime_dependency 'faraday', '>= 1.0.1', '< 3.0'
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'marcel'
 
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
+  s.add_development_dependency 'webmock', '~> 3.23'
 
   s.files         = Dir["lib/**/*.rb"] + %w[README.md LICENSE.txt]
   s.executables   = []

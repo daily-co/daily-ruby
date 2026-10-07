@@ -25,10 +25,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::TranscriptApi.new
@@ -73,7 +71,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -96,10 +94,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::TranscriptApi.new
@@ -144,7 +140,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -158,7 +154,7 @@ end
 
 transcript/:id/access-link
 
-Generate an access link for a transcript
+Generate an access link for a transcript. The `link` is a short-lived signed URL: see the [access links guide](/docs/rest-api/access-links) for more information.
 
 ### Examples
 
@@ -167,10 +163,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::TranscriptApi.new
@@ -215,7 +209,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -238,10 +232,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::TranscriptApi.new
@@ -250,6 +242,7 @@ opts = {
   ending_before: 'ending_before_example', # String | 
   starting_after: 'starting_after_example', # String | 
   room_id: 'room_id_example', # String | 
+  room_name: 'room_name_example', # String | 
   mtg_session_id: 'mtg_session_id_example' # String | 
 }
 
@@ -288,6 +281,7 @@ end
 | **ending_before** | **String** |  | [optional] |
 | **starting_after** | **String** |  | [optional] |
 | **room_id** | **String** |  | [optional] |
+| **room_name** | **String** |  | [optional] |
 | **mtg_session_id** | **String** |  | [optional] |
 
 ### Return type
@@ -296,7 +290,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

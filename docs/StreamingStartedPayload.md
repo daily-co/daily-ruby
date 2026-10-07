@@ -7,7 +7,7 @@
 | **timestamp** | **Integer** | The Unix epoch time in seconds representing when streaming was started. | [optional] |
 | **instance_id** | **String** | The streaming instance ID. | [optional] |
 | **domain_id** | **String** | ID of the domain for which streaming was started. | [optional] |
-| **layout** | [**DailyStreamingLayoutConfig**](.md) |  | [optional] |
+| **layout** | [**DailyStreamingLayoutConfig**](DailyStreamingLayoutConfig.md) |  | [optional] |
 
 ## Example
 

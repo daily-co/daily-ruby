@@ -6,7 +6,7 @@ All URIs are relative to *https://api.daily.co/v1*
 | ------ | ------------ | ----------- |
 | [**buy_phone_number**](PhoneNumbersApi.md#buy_phone_number) | **POST** /buy-phone-number | /buy-phone-number |
 | [**list_available_numbers**](PhoneNumbersApi.md#list_available_numbers) | **GET** /list-available-numbers | /list-available-numbers |
-| [**purchased_phone_nunbers**](PhoneNumbersApi.md#purchased_phone_nunbers) | **GET** /purchased-phone-numbers | /purchased-phone-numbers |
+| [**purchased_phone_numbers**](PhoneNumbersApi.md#purchased_phone_numbers) | **GET** /purchased-phone-numbers | /purchased-phone-numbers |
 | [**release_phone_number**](PhoneNumbersApi.md#release_phone_number) | **DELETE** /release-phone-number/{id} | release-phone-number/:id |
 
 
@@ -25,10 +25,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::PhoneNumbersApi.new
@@ -75,7 +73,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -98,10 +96,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::PhoneNumbersApi.new
@@ -157,7 +153,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -165,9 +161,9 @@ nil (empty response body)
 - **Accept**: application/json
 
 
-## purchased_phone_nunbers
+## purchased_phone_numbers
 
-> purchased_phone_nunbers
+> purchased_phone_numbers(opts)
 
 /purchased-phone-numbers
 
@@ -180,43 +176,54 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::PhoneNumbersApi.new
+opts = {
+  limit: 56, # Integer | 
+  ending_before: 'ending_before_example', # String | 
+  starting_after: 'starting_after_example', # String | 
+  filter_name: 'filter_name_example', # String | 
+  filter_number: 'filter_number_example' # String | 
+}
 
 begin
   # /purchased-phone-numbers
-  api_instance.purchased_phone_nunbers
+  api_instance.purchased_phone_numbers(opts)
 rescue Daily::ApiError => e
-  puts "Error when calling PhoneNumbersApi->purchased_phone_nunbers: #{e}"
+  puts "Error when calling PhoneNumbersApi->purchased_phone_numbers: #{e}"
 end
 ```
 
-#### Using the purchased_phone_nunbers_with_http_info variant
+#### Using the purchased_phone_numbers_with_http_info variant
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> purchased_phone_nunbers_with_http_info
+> <Array(nil, Integer, Hash)> purchased_phone_numbers_with_http_info(opts)
 
 ```ruby
 begin
   # /purchased-phone-numbers
-  data, status_code, headers = api_instance.purchased_phone_nunbers_with_http_info
+  data, status_code, headers = api_instance.purchased_phone_numbers_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue Daily::ApiError => e
-  puts "Error when calling PhoneNumbersApi->purchased_phone_nunbers_with_http_info: #{e}"
+  puts "Error when calling PhoneNumbersApi->purchased_phone_numbers_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** |  | [optional] |
+| **ending_before** | **String** |  | [optional] |
+| **starting_after** | **String** |  | [optional] |
+| **filter_name** | **String** |  | [optional] |
+| **filter_number** | **String** |  | [optional] |
 
 ### Return type
 
@@ -224,7 +231,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -234,7 +241,7 @@ nil (empty response body)
 
 ## release_phone_number
 
-> Object release_phone_number(id)
+> <DeleteDomainDialinConfig200Response> release_phone_number(id)
 
 release-phone-number/:id
 
@@ -247,10 +254,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::PhoneNumbersApi.new
@@ -269,7 +274,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> release_phone_number_with_http_info(id)
+> <Array(<DeleteDomainDialinConfig200Response>, Integer, Hash)> release_phone_number_with_http_info(id)
 
 ```ruby
 begin
@@ -277,7 +282,7 @@ begin
   data, status_code, headers = api_instance.release_phone_number_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <DeleteDomainDialinConfig200Response>
 rescue Daily::ApiError => e
   puts "Error when calling PhoneNumbersApi->release_phone_number_with_http_info: #{e}"
 end
@@ -291,11 +296,11 @@ end
 
 ### Return type
 
-**Object**
+[**DeleteDomainDialinConfig200Response**](DeleteDomainDialinConfig200Response.md)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

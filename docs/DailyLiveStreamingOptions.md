@@ -13,7 +13,9 @@
 | **max_duration** | **Float** | Maximum duration in seconds after which recording/streaming is forcefully stopped. Default: \\&#x60;15000\\&#x60; seconds (3 hours). This is a preventive circuit breaker to prevent billing surprises in case a user starts recording/streaming and leaves the room. | [optional] |
 | **background_color** | **String** | Specifies the background color of the stream, formatted as \\#rrggbb or \\#aarrggbb string. | [optional] |
 | **instance_id** | **String** | UUID for a streaming or recording session. Used when multiple streaming or recording sessions are running for single room. | [optional] |
+| **type** | **String** | The type of recording that will be started. | [optional] |
 | **layout** | [**DailyStreamingLayoutConfig**](DailyStreamingLayoutConfig.md) |  | [optional] |
+| **data_outputs** | **Array&lt;String&gt;** | Specifies the types of recording-associated data outputs (\&quot;event-json\&quot;, \&quot;transcript-webvtt\&quot;, \&quot;chat-webvtt\&quot;) to start. Value must be an array listing the requested data outputs. | [optional] |
 | **rtmp_url** | [**DailyLiveStreamingOptionsRtmpUrl**](DailyLiveStreamingOptionsRtmpUrl.md) |  | [optional] |
 | **endpoints** | [**Array&lt;DailyStreamingEndpoint&gt;**](DailyStreamingEndpoint.md) |  | [optional] |
 
@@ -32,7 +34,9 @@ instance = Daily::DailyLiveStreamingOptions.new(
   max_duration: null,
   background_color: null,
   instance_id: null,
+  type: null,
   layout: null,
+  data_outputs: null,
   rtmp_url: null,
   endpoints: null
 )

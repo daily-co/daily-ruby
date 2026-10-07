@@ -25,3 +25,19 @@
 # Hand-maintained: ships only lib/ (not pkg/, scripts/ or local files) and
 # sets required_ruby_version. Version still comes from lib/daily-ruby/version.rb.
 daily-ruby.gemspec
+
+# Hand-maintained compatibility layer for 1.0.x callers. run.sh adds the
+# require line for it to the generated lib/daily-ruby.rb.
+lib/daily-ruby/compat.rb
+
+# Hand-maintained: adds webmock for the test suite. The generated one would
+# also re-add an old rubocop pin.
+Gemfile
+
+# Hand-written tests (unit, compat and integration). The generator only
+# makes empty "should work" stubs, so keep it out of spec/ completely.
+spec/**
+
+# Hand-maintained: Ruby versions match .github/workflows and the gemspec
+# (>= 3.0). The generated one lists 2.7.
+.travis.yml

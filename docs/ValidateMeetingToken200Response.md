@@ -5,10 +5,10 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **room_name** | **String** |  | [optional] |
-| **is_owner** | **Boolean** |  | [optional][default to true] |
+| **is_owner** | **Boolean** |  | [optional] |
 | **user_name** | **String** |  | [optional] |
-| **start_video_off** | **Boolean** |  | [optional][default to true] |
-| **start_audio_off** | **Boolean** |  | [optional][default to true] |
+| **start_video_off** | **Boolean** |  | [optional] |
+| **start_audio_off** | **Boolean** |  | [optional] |
 | **lang** | **String** |  | [optional] |
 
 ## Example

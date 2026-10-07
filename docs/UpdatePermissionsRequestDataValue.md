@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **has_presence** | **Boolean** |  | [optional] |
 | **can_send** | [**UpdatePermissionsRequestDataValueCanSend**](UpdatePermissionsRequestDataValueCanSend.md) |  | [optional] |
+| **can_receive** | **Object** |  | [optional] |
 | **can_admin** | [**UpdatePermissionsRequestDataValueCanSend**](UpdatePermissionsRequestDataValueCanSend.md) |  | [optional] |
 
 ## Example
@@ -16,6 +17,7 @@ require 'daily-ruby'
 instance = Daily::UpdatePermissionsRequestDataValue.new(
   has_presence: null,
   can_send: null,
+  can_receive: null,
   can_admin: null
 )
 ```

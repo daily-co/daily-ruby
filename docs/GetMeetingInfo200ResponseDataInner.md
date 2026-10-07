@@ -4,11 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  |  |
-| **room** | **String** |  |  |
-| **start_time** | **Float** |  |  |
-| **duration** | **Float** |  |  |
-| **ongoing** | **Boolean** |  |  |
+| **id** | **String** | Unique meeting session ID. | [optional] |
+| **room** | **String** | The room name the meeting took place in. | [optional] |
+| **start_time** | **Integer** | Unix timestamp of when the meeting started. | [optional] |
+| **duration** | **Integer** | Duration of the meeting in seconds. | [optional] |
+| **ongoing** | **Boolean** | Whether the meeting is currently in progress. | [optional] |
+| **max_participants** | **Integer** | Peak number of simultaneous participants during the meeting. | [optional] |
 | **participants** | [**Array&lt;GetMeetingInfo200ResponseDataInnerParticipantsInner&gt;**](GetMeetingInfo200ResponseDataInnerParticipantsInner.md) |  | [optional] |
 
 ## Example
@@ -22,6 +23,7 @@ instance = Daily::GetMeetingInfo200ResponseDataInner.new(
   start_time: null,
   duration: null,
   ongoing: null,
+  max_participants: null,
   participants: null
 )
 ```

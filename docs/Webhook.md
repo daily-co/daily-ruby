@@ -5,12 +5,12 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uuid** | **String** | The unique identifier for this webhook. | [optional] |
-| **url** | **String** | The webhook server endpoint that was provided. | [optional] |
+| **url** | **String** | The webhook server endpoint that was provided. |  |
 | **hmac** | **String** | A secret that can be used to verify the signature of the webhook. | [optional] |
 | **basic_auth** | **String** | The basic auth credentials that will be used to POST to the webhook URL. | [optional] |
 | **retry_type** | **String** | The retry configuration for this webhook endpoint to use. The default is circuit-breaker. | [optional] |
 | **event_types** | **Array&lt;String&gt;** | The set of event types this webhook is subscribed to. | [optional] |
-| **state** | **String** | The current state of the webhook. \&quot;FAILED\&quot; | \&quot;INACTIVE\&quot; | [optional] |
+| **state** | **String** | The current state of the webhook. \&quot;FAILED\&quot; | \&quot;ACTIVE\&quot; | [optional] |
 | **failed_count** | **Float** | The number of consecutive failures this webhook has made. | [optional] |
 | **last_moment_pushed** | **String** | The ISO 8601 time of the last moment an event was pushed to the webhook server. | [optional] |
 | **domain_id** | **String** | The domain ID this webhook is associated with. | [optional] |

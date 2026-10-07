@@ -6,11 +6,11 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
-| **api_created** | **Boolean** |  | [optional][default to true] |
+| **api_created** | **Boolean** |  | [optional] |
 | **privacy** | **String** |  | [optional] |
 | **url** | **String** |  | [optional] |
 | **created_at** | **String** |  | [optional] |
-| **config** | [**ListRooms200ResponseDataInnerConfig**](ListRooms200ResponseDataInnerConfig.md) |  | [optional] |
+| **config** | [**RoomConfig**](RoomConfig.md) |  | [optional] |
 
 ## Example
 

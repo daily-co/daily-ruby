@@ -24,6 +24,7 @@ All URIs are relative to *https://api.daily.co/v1*
 | [**room_sip_refer**](RoomsApi.md#room_sip_refer) | **POST** /rooms/{room_name}/sipRefer | rooms/:name/sipRefer |
 | [**room_transcription_start**](RoomsApi.md#room_transcription_start) | **POST** /rooms/{room_name}/transcription/start | rooms/:name/transcription/start |
 | [**room_transcription_stop**](RoomsApi.md#room_transcription_stop) | **POST** /rooms/{room_name}/transcription/stop | rooms/:name/transcription/stop |
+| [**room_transcription_update**](RoomsApi.md#room_transcription_update) | **POST** /rooms/{room_name}/transcription/update | rooms/:name/transcription/update |
 | [**send_app_message**](RoomsApi.md#send_app_message) | **POST** /rooms/{room_name}/send-app-message | rooms/:name/send-app-message |
 | [**set_room_config**](RoomsApi.md#set_room_config) | **POST** /rooms/{room_name} | rooms/:name |
 | [**set_session_data**](RoomsApi.md#set_session_data) | **POST** /rooms/{room_name}/set-session-data | rooms/:name/set-session-data |
@@ -45,10 +46,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -95,7 +94,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -105,7 +104,7 @@ end
 
 ## delete_room
 
-> Object delete_room(room_name)
+> <DeleteRoom200Response> delete_room(room_name)
 
 rooms/:name
 
@@ -118,10 +117,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -140,7 +137,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> delete_room_with_http_info(room_name)
+> <Array(<DeleteRoom200Response>, Integer, Hash)> delete_room_with_http_info(room_name)
 
 ```ruby
 begin
@@ -148,7 +145,7 @@ begin
   data, status_code, headers = api_instance.delete_room_with_http_info(room_name)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <DeleteRoom200Response>
 rescue Daily::ApiError => e
   puts "Error when calling RoomsApi->delete_room_with_http_info: #{e}"
 end
@@ -162,11 +159,11 @@ end
 
 ### Return type
 
-**Object**
+[**DeleteRoom200Response**](DeleteRoom200Response.md)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -189,10 +186,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -241,7 +236,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -264,10 +259,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -312,7 +305,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -335,17 +328,15 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
 room_name = 'room_name_example' # String | The name of the room
 opts = {
   limit: 56, # Integer | Sets the number of participants returned.
-  user_id: 'user_id_example', # String | Returns presence for the user with the given userId, if available. The userId is specified via a [meeting token](/reference/rest-api/meeting-tokens/config#user_id).
+  user_id: 'user_id_example', # String | Returns presence for the user with the given userId, if available. The userId is specified via a [meeting token](/products/rest-api/meeting-tokens/config#user_id).
   user_name: 'user_name_example' # String | Returns presence for the user with the given name, if available.
 }
 
@@ -382,7 +373,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **room_name** | **String** | The name of the room |  |
 | **limit** | **Integer** | Sets the number of participants returned. | [optional] |
-| **user_id** | **String** | Returns presence for the user with the given userId, if available. The userId is specified via a [meeting token](/reference/rest-api/meeting-tokens/config#user_id). | [optional] |
+| **user_id** | **String** | Returns presence for the user with the given userId, if available. The userId is specified via a [meeting token](/products/rest-api/meeting-tokens/config#user_id). | [optional] |
 | **user_name** | **String** | Returns presence for the user with the given name, if available. | [optional] |
 
 ### Return type
@@ -391,7 +382,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -414,10 +405,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -461,7 +450,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -484,10 +473,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -538,7 +525,7 @@ end
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -552,7 +539,7 @@ end
 
 rooms/:name/dialOut/sendDTMF
 
-send DTMF digits on the dialout
+send DTMF digits on the dial-out
 
 ### Examples
 
@@ -561,16 +548,14 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
 room_name = 'room_name_example' # String | 
 opts = {
-  room_dial_out_send_dtmf_request: Daily::RoomDialOutSendDTMFRequest.new # RoomDialOutSendDTMFRequest | 
+  room_dial_out_send_dtmf_request: Daily::RoomDialOutSendDTMFRequest.new({session_id: 'session_id_example', tones: 'tones_example'}) # RoomDialOutSendDTMFRequest | 
 }
 
 begin
@@ -612,7 +597,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -635,10 +620,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -686,7 +669,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -709,10 +692,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -760,7 +741,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -783,10 +764,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -834,7 +813,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -857,10 +836,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -904,7 +881,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -927,10 +904,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -978,7 +953,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1001,10 +976,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -1052,7 +1025,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1075,10 +1048,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -1122,7 +1093,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1145,10 +1116,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -1196,7 +1165,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1206,7 +1175,7 @@ nil (empty response body)
 
 ## room_sip_call_transfer
 
-> room_sip_call_transfer(room_name, opts)
+> <RoomSipCallTransfer200Response> room_sip_call_transfer(room_name, opts)
 
 rooms/:name/sipCallTransfer
 
@@ -1219,10 +1188,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -1233,7 +1200,8 @@ opts = {
 
 begin
   # rooms/:name/sipCallTransfer
-  api_instance.room_sip_call_transfer(room_name, opts)
+  result = api_instance.room_sip_call_transfer(room_name, opts)
+  p result
 rescue Daily::ApiError => e
   puts "Error when calling RoomsApi->room_sip_call_transfer: #{e}"
 end
@@ -1241,9 +1209,9 @@ end
 
 #### Using the room_sip_call_transfer_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> room_sip_call_transfer_with_http_info(room_name, opts)
+> <Array(<RoomSipCallTransfer200Response>, Integer, Hash)> room_sip_call_transfer_with_http_info(room_name, opts)
 
 ```ruby
 begin
@@ -1251,7 +1219,7 @@ begin
   data, status_code, headers = api_instance.room_sip_call_transfer_with_http_info(room_name, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <RoomSipCallTransfer200Response>
 rescue Daily::ApiError => e
   puts "Error when calling RoomsApi->room_sip_call_transfer_with_http_info: #{e}"
 end
@@ -1266,11 +1234,11 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**RoomSipCallTransfer200Response**](RoomSipCallTransfer200Response.md)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1280,7 +1248,7 @@ nil (empty response body)
 
 ## room_sip_refer
 
-> Object room_sip_refer(room_name, opts)
+> <RoomSipCallTransfer200Response> room_sip_refer(room_name, opts)
 
 rooms/:name/sipRefer
 
@@ -1293,16 +1261,14 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
 room_name = 'room_name_example' # String | 
 opts = {
-  room_sip_call_transfer_request: Daily::RoomSipCallTransferRequest.new # RoomSipCallTransferRequest | 
+  room_sip_refer_request: Daily::RoomSipReferRequest.new # RoomSipReferRequest | 
 }
 
 begin
@@ -1318,7 +1284,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> room_sip_refer_with_http_info(room_name, opts)
+> <Array(<RoomSipCallTransfer200Response>, Integer, Hash)> room_sip_refer_with_http_info(room_name, opts)
 
 ```ruby
 begin
@@ -1326,7 +1292,7 @@ begin
   data, status_code, headers = api_instance.room_sip_refer_with_http_info(room_name, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <RoomSipCallTransfer200Response>
 rescue Daily::ApiError => e
   puts "Error when calling RoomsApi->room_sip_refer_with_http_info: #{e}"
 end
@@ -1337,15 +1303,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **room_name** | **String** |  |  |
-| **room_sip_call_transfer_request** | [**RoomSipCallTransferRequest**](RoomSipCallTransferRequest.md) |  | [optional] |
+| **room_sip_refer_request** | [**RoomSipReferRequest**](RoomSipReferRequest.md) |  | [optional] |
 
 ### Return type
 
-**Object**
+[**RoomSipCallTransfer200Response**](RoomSipCallTransfer200Response.md)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1368,10 +1334,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -1419,7 +1383,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1429,7 +1393,7 @@ nil (empty response body)
 
 ## room_transcription_stop
 
-> room_transcription_stop(room_name)
+> room_transcription_stop(room_name, opts)
 
 rooms/:name/transcription/stop
 
@@ -1442,18 +1406,19 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
 room_name = 'room_name_example' # String | 
+opts = {
+  room_transcription_stop_request: Daily::RoomTranscriptionStopRequest.new # RoomTranscriptionStopRequest | 
+}
 
 begin
   # rooms/:name/transcription/stop
-  api_instance.room_transcription_stop(room_name)
+  api_instance.room_transcription_stop(room_name, opts)
 rescue Daily::ApiError => e
   puts "Error when calling RoomsApi->room_transcription_stop: #{e}"
 end
@@ -1463,12 +1428,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> room_transcription_stop_with_http_info(room_name)
+> <Array(nil, Integer, Hash)> room_transcription_stop_with_http_info(room_name, opts)
 
 ```ruby
 begin
   # rooms/:name/transcription/stop
-  data, status_code, headers = api_instance.room_transcription_stop_with_http_info(room_name)
+  data, status_code, headers = api_instance.room_transcription_stop_with_http_info(room_name, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -1482,6 +1447,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **room_name** | **String** |  |  |
+| **room_transcription_stop_request** | [**RoomTranscriptionStopRequest**](RoomTranscriptionStopRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -1489,11 +1455,83 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## room_transcription_update
+
+> room_transcription_update(room_name, opts)
+
+rooms/:name/transcription/update
+
+Update the set of participants being transcribed
+
+### Examples
+
+```ruby
+require 'time'
+require 'daily-ruby'
+# setup authorization
+Daily.configure do |config|
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Daily::RoomsApi.new
+room_name = 'room_name_example' # String | 
+opts = {
+  room_transcription_update_request: Daily::RoomTranscriptionUpdateRequest.new # RoomTranscriptionUpdateRequest | 
+}
+
+begin
+  # rooms/:name/transcription/update
+  api_instance.room_transcription_update(room_name, opts)
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_transcription_update: #{e}"
+end
+```
+
+#### Using the room_transcription_update_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> room_transcription_update_with_http_info(room_name, opts)
+
+```ruby
+begin
+  # rooms/:name/transcription/update
+  data, status_code, headers = api_instance.room_transcription_update_with_http_info(room_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Daily::ApiError => e
+  puts "Error when calling RoomsApi->room_transcription_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **room_name** | **String** |  |  |
+| **room_transcription_update_request** | [**RoomTranscriptionUpdateRequest**](RoomTranscriptionUpdateRequest.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1512,10 +1550,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -1563,7 +1599,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1573,7 +1609,7 @@ nil (empty response body)
 
 ## set_room_config
 
-> set_room_config(room_name, opts)
+> <RoomsRoomNameGetRes> set_room_config(room_name, opts)
 
 rooms/:name
 
@@ -1586,10 +1622,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -1600,7 +1634,8 @@ opts = {
 
 begin
   # rooms/:name
-  api_instance.set_room_config(room_name, opts)
+  result = api_instance.set_room_config(room_name, opts)
+  p result
 rescue Daily::ApiError => e
   puts "Error when calling RoomsApi->set_room_config: #{e}"
 end
@@ -1608,9 +1643,9 @@ end
 
 #### Using the set_room_config_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> set_room_config_with_http_info(room_name, opts)
+> <Array(<RoomsRoomNameGetRes>, Integer, Hash)> set_room_config_with_http_info(room_name, opts)
 
 ```ruby
 begin
@@ -1618,7 +1653,7 @@ begin
   data, status_code, headers = api_instance.set_room_config_with_http_info(room_name, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <RoomsRoomNameGetRes>
 rescue Daily::ApiError => e
   puts "Error when calling RoomsApi->set_room_config_with_http_info: #{e}"
 end
@@ -1633,11 +1668,11 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**RoomsRoomNameGetRes**](RoomsRoomNameGetRes.md)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1660,10 +1695,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -1711,7 +1744,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1734,10 +1767,8 @@ require 'time'
 require 'daily-ruby'
 # setup authorization
 Daily.configure do |config|
-  # Configure API key authorization: sec0
-  config.api_key['sec0'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sec0'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = Daily::RoomsApi.new
@@ -1785,7 +1816,7 @@ nil (empty response body)
 
 ### Authorization
 
-[sec0](../README.md#sec0)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
