@@ -5,11 +5,17 @@
 # the request fail. Drop them before generating, and mark the field nullable
 # so callers can send null to clear a bad value an older SDK version saved.
 # Real defaults are kept.
+#
+# This matches on what a value looks like, so a new or reworded placeholder
+# can slip past it. run.sh checks the generated code afterwards and fails if
+# one did.
 def placeholder:
   . == "NULL"
   or . == "<not set>"
   or startswith("The closest available region")
-  or test("\\{epoch_time\\}.*\\.$");
+  # A path template ("{domain_name}/...") that starts or ends with "." or "/".
+  # The API rejects those (validateS3PathTemplate in pluot-core).
+  or (test("\\{[a-z_]+\\}") and test("^[./]|[./]$"));
 
 walk(
   if type == "object" and (.default | type) == "string" and (.default | placeholder)
