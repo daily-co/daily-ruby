@@ -31,7 +31,7 @@ jobs:
       # and need DAILY_API_KEY, so they are left out here. Run them locally
       # with: DAILY_API_KEY=... bundle exec rspec --tag integration
       - name: Run unit tests
-        run: bundle exec rspec --tag ~integration
+        run: bundle exec rspec --tag '~integration'
 
       - name: Build the gem
         run: bundle exec rake build
