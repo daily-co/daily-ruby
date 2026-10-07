@@ -5,9 +5,11 @@ p 'Version: ' + Daily::VERSION
 
 # Setup authorization
 Daily.configure do |config|
-  # Configure Bearer authorization: bearerAuth
-  config.api_key['sec0'] = ENV['DAILY_API_KEY']
-  config.api_key_prefix['sec0'] = 'Bearer'
+  # Your Daily API key, sent as a Bearer token.
+  config.access_token = ENV['DAILY_API_KEY']
+  # The 1.0.x style still works too:
+  # config.api_key['sec0'] = ENV['DAILY_API_KEY']
+  # config.api_key_prefix['sec0'] = 'Bearer'
   # Configure faraday connection
   # config.configure_faraday_connection { |connection| 'YOUR CONNECTION CONFIG PROC' }
 end
