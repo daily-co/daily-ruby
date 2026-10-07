@@ -10,7 +10,7 @@ jobs:
         ruby-version: ["3.1", "3.2", "3.3"]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -27,8 +27,11 @@ jobs:
       - name: Bundle install
         run: bundle install -j $(nproc)
 
-      - name: Run RSpec
-        run: bundle exec rspec
+      # Unit tests only. The specs under spec/integration call the real API
+      # and need DAILY_API_KEY, so they are left out here. Run them locally
+      # with: DAILY_API_KEY=... bundle exec rspec --tag integration
+      - name: Run unit tests
+        run: bundle exec rspec --tag ~integration
 
       - name: Build the gem
         run: bundle exec rake build
