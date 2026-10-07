@@ -1,0 +1,36 @@
+name: Tag release
+
+# When a version bump lands on main, tag that commit v<VERSION>.
+# Runs after the merge, so it tags the commit that is actually on main
+# (rebase and merge gives commits new SHAs).
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Tag v<VERSION> if it does not exist
+        run: |
+          version=$(sed -nE "s/^ *VERSION = '([^']+)'.*/\1/p" lib/daily-ruby/version.rb)
+          if [ -z "$version" ]; then
+            echo "Could not read VERSION from lib/daily-ruby/version.rb" >&2
+            exit 1
+          fi
+          tag="v$version"
+          if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+            echo "$tag already exists, nothing to do"
+            exit 0
+          fi
+          git tag "$tag" "$GITHUB_SHA"
+          git push origin "refs/tags/$tag"
+          echo "Tagged $GITHUB_SHA as $tag"

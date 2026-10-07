@@ -224,6 +224,10 @@ module Daily
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'meeting_join_hook',
+        :'geo',
+        :'rtmp_geo',
+        :'recordings_template',
       ])
     end
 
@@ -336,20 +340,14 @@ module Daily
 
       if attributes.key?(:'meeting_join_hook')
         self.meeting_join_hook = attributes[:'meeting_join_hook']
-      else
-        self.meeting_join_hook = 'NULL'
       end
 
       if attributes.key?(:'geo')
         self.geo = attributes[:'geo']
-      else
-        self.geo = 'NULL'
       end
 
       if attributes.key?(:'rtmp_geo')
         self.rtmp_geo = attributes[:'rtmp_geo']
-      else
-        self.rtmp_geo = 'The closest available region to the SFU region used by the meeting.'
       end
 
       if attributes.key?(:'disable_rtmp_geo_fallback')
@@ -376,8 +374,6 @@ module Daily
 
       if attributes.key?(:'recordings_template')
         self.recordings_template = attributes[:'recordings_template']
-      else
-        self.recordings_template = '{domain_name}/{room_name}/{epoch_time}.'
       end
 
       if attributes.key?(:'enable_mesh_sfu')

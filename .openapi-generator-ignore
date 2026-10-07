@@ -21,3 +21,7 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+# Hand-maintained: ships only lib/ (not pkg/, scripts/ or local files) and
+# sets required_ruby_version. Version still comes from lib/daily-ruby/version.rb.
+daily-ruby.gemspec

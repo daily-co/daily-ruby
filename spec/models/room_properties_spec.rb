@@ -136,12 +136,16 @@ describe Daily::RoomProperties do
   end
 
   describe 'test attribute "enable_recording"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["cloud", "local", "raw-tracks", "<not set>"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.enable_recording = value }.not_to raise_error
-      # end
+    it 'is not sent when unset' do
+      expect(Daily::RoomProperties.new.to_hash).not_to have_key(:enable_recording)
+    end
+
+    it 'is sent when set' do
+      expect(Daily::RoomProperties.new(enable_recording: 'cloud').to_hash[:enable_recording]).to eq('cloud')
+    end
+
+    it 'is not sent when set to nil' do
+      expect(Daily::RoomProperties.new(enable_recording: nil).to_hash).not_to have_key(:enable_recording)
     end
   end
 
@@ -204,14 +208,34 @@ describe Daily::RoomProperties do
   end
 
   describe 'test attribute "geo"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    it 'is not sent when unset' do
+      expect(Daily::RoomProperties.new.to_hash).not_to have_key(:geo)
+    end
+
+    it 'is sent when set' do
+      expect(Daily::RoomProperties.new(geo: 'eu-central-1').to_hash[:geo]).to eq('eu-central-1')
+    end
+
+    it 'is sent as null when set to nil, so a saved value can be cleared' do
+      hash = Daily::RoomProperties.new(geo: nil).to_hash
+      expect(hash).to have_key(:geo)
+      expect(hash[:geo]).to be_nil
     end
   end
 
   describe 'test attribute "rtmp_geo"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    it 'is not sent when unset' do
+      expect(Daily::RoomProperties.new.to_hash).not_to have_key(:rtmp_geo)
+    end
+
+    it 'is sent when set' do
+      expect(Daily::RoomProperties.new(rtmp_geo: 'us-west-2').to_hash[:rtmp_geo]).to eq('us-west-2')
+    end
+
+    it 'is sent as null when set to nil, so a saved value can be cleared' do
+      hash = Daily::RoomProperties.new(rtmp_geo: nil).to_hash
+      expect(hash).to have_key(:rtmp_geo)
+      expect(hash[:rtmp_geo]).to be_nil
     end
   end
 
@@ -252,8 +276,18 @@ describe Daily::RoomProperties do
   end
 
   describe 'test attribute "recordings_template"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    it 'is not sent when unset' do
+      expect(Daily::RoomProperties.new.to_hash).not_to have_key(:recordings_template)
+    end
+
+    it 'is sent when set' do
+      expect(Daily::RoomProperties.new(recordings_template: '{room_name}/{epoch_time}.mp4').to_hash[:recordings_template]).to eq('{room_name}/{epoch_time}.mp4')
+    end
+
+    it 'is sent as null when set to nil, so a saved value can be cleared' do
+      hash = Daily::RoomProperties.new(recordings_template: nil).to_hash
+      expect(hash).to have_key(:recordings_template)
+      expect(hash[:recordings_template]).to be_nil
     end
   end
 
