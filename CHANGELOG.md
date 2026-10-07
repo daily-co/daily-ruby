@@ -22,7 +22,7 @@ exception is `owner_only_broadcast` (see below).
 - `scripts/strip-placeholder-defaults.jq` now removes every `default` from
   the request and response schemas, and `run.sh` fails if any model still
   fills one in. See the behaviour note below.
-- `.travis.yml` now tests Ruby 3.0 to 3.3, the same as GitHub Actions and
+- `.travis.yml` now tests Ruby 3.1 to 3.3, the same as GitHub Actions and
   the gemspec, reads the gem version from `lib/daily-ruby/version.rb`, and
   the generator no longer overwrites it.
 - `run.sh` deletes generated files for models the spec dropped (skipping
@@ -106,6 +106,8 @@ These are handled in `lib/daily-ruby/compat.rb`.
 
 ### Breaking or behaviour changes
 
+- **Ruby 3.1 or newer is required.** Ruby 3.0 reached end of life in
+  April 2024 and is no longer tested or supported. 1.0.x allowed 3.0.
 - **`owner_only_broadcast` is removed** from `RoomProperties` and
   `DomainProperties`, because the API removed it (Daily changelog,
   2026-02-24). Passing it now raises `ArgumentError`. Remove it from your
