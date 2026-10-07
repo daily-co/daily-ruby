@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'marcel'
 
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
+  s.add_development_dependency 'webmock', '~> 3.23'
 
   s.files         = Dir["lib/**/*.rb"] + %w[README.md LICENSE.txt]
   s.executables   = []
